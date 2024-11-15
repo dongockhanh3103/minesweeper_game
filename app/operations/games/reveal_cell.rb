@@ -13,16 +13,18 @@ module Games
       return game if revealed[row][col]
 
       revealed[row][col] = true
-      game.status = 'playing' if game.initial?
+      game.status = Game.statuses[:playing] if game.initial?
 
       if board[row][col] == 'M'
-        game.status = 'lost'
+        game.status = Game.statuses[:lost]
+        revealed = Array.new(game.width) { Array.new(game.height, true) }
       elsif board[row][col] == 0
         reveal_adjacent_cells(row, col, board, revealed)
       end
 
-      if game.status != 'lost' && revealed.flatten.count(false) == game.number_of_mines
-        game.status = 'won'
+      if game.status != Game.statuses[:lost] && revealed.flatten.count(false) == game.number_of_mines
+        game.status = Game.statuses[:won]
+        revealed = Array.new(game.width) { Array.new(game.height, true) }
       end
 
       game.revealed = revealed.to_json

@@ -1,9 +1,9 @@
 <% status_class = case @game.status  %>
-<% when 'playing' %>
+<% when Game.statuses[:playing] %>
 <% 'bg-warning' %>
-<% when 'lost' %>
+<% when Game.statuses[:lost] %>
 <% 'bg-danger' %>
-<% when 'won' %>
+<% when Game.statuses[:won] %>
 <% 'bg-success' %>
 <% end %>
 
