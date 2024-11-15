@@ -1,0 +1,21 @@
+<h1 class="text-center">New Board</h1>
+
+<%= bootstrap_form_for(@game) do |f| %>
+  <!-- Display error messages globally (for any errors on the post) -->
+  <% if @game.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h4>
+      <ul>
+        <% @game.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.email_field :email %>
+  <%= f.text_field :name %>
+  <%= f.number_field :width, min: 1, placeholder: 'Enter Width' %>
+  <%= f.number_field :height, min: 1, placeholder: 'Enter Height' %>
+  <%= f.number_field :number_of_mines, min: 1, placeholder: 'Enter Number of Mines' %><br/>
+  <%= f.submit 'Generate Board', class: 'btn btn-primary' %>
+<% end %>

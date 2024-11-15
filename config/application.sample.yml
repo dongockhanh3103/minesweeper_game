@@ -1,0 +1,16 @@
+# If you use docker most of these should be passed from docker-compose
+# EXCEPT SECRET_KEY_BASE
+default: &default
+  DATABASE_HOST: localhost
+  DATABASE_NAME: minesweeper_game_development
+  DATABASE_PASSWORD: root
+  DATABASE_USER: root
+development:
+  <<: *default
+
+test:
+  <<: *default
+  DATABASE_NAME: minesweeper_game_test
+
+production:
+  <<: *default

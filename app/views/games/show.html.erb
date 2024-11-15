@@ -1,0 +1,31 @@
+<% status_class = case @game.status  %>
+<% when 'playing' %>
+<% 'bg-warning' %>
+<% when 'lost' %>
+<% 'bg-danger' %>
+<% when 'won' %>
+<% 'bg-success' %>
+<% end %>
+
+<div class="container-fluid p-1 d-flex align-items-center justify-content-center">
+  <h1><%= @game.name %></h1>
+  <span class="badge ms-3 <%= status_class %>"><%= I18n.t("games.statuses.#{@game.status}") %></span>
+</div>
+
+<% @board.each_with_index do |row, row_idx| %>
+  <div class="col-12">
+    <div class="row w-25">
+      <% row.each_with_index do |cell, col_idx| %>
+        <div class='col-1 px-3 py-2'>
+          <% if @revealed[row_idx][col_idx] %>
+            <%= cell == 'M' ? '💣' : cell %>
+          <% else %>
+            <%= link_to '⬜', game_path(@game, row: row_idx, col: col_idx), method: :patch, data: { 'turbo-method': :put } %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to 'Start Over', new_game_path %>

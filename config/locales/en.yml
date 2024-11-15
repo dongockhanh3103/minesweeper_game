@@ -29,3 +29,9 @@
 
 en:
   hello: "Hello world"
+  games:
+    statuses:
+      initial: initial
+      won: Won
+      lost: Lost
+      playing: Playing
