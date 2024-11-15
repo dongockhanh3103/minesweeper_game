@@ -20,7 +20,6 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(permitted_create_params)
-    @game.email = 'khanhs'
     if @game.save
       redirect_to game_path(@game)
     else
