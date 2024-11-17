@@ -9,4 +9,8 @@ module GameHelper
       content_tag(:span, I18n.t("games.statuses.won"), class: 'badge bg-success')
     end
   end
+
+  def datetime_formatted(datetime)
+    datetime.strftime('%d/%m/%Y %H:%M')
+  end
 end

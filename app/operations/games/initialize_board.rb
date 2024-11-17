@@ -30,10 +30,10 @@ module Games
         end
       end
 
-      (0...game.width).each do |row|
-        (0...game.height).each do |col|
-          next if board[row][col] == 'M'
-          board[row][col] = count_mines_around(board, row, col)
+      (0...game.width).each do |row_idx|
+        (0...game.height).each do |col_idx|
+          next if board[row_idx][col_idx] == 'M'
+          board[row_idx][col_idx] = count_mines_around(board, row_idx, col_idx)
         end
       end
 

@@ -25,20 +25,20 @@
 <table class="table table-bordered mt-3">
   <thead>
     <tr>
-      <th>#</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Created Date</th>
-      <th>Status</th>
+      <th class="text-center">#</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Email</th>
+      <th class="text-center">Created Date</th>
+      <th class="text-center">Status</th>
     </tr>
   </thead>
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= game.id %></td>
-        <td><%= link_to game.name, game_path(game) %></td>
-        <td><%= game.email %></td>
-        <td><%= game.created_at %></td>
+        <td class="text-center"><%= game.id %></td>
+        <td class="text-center"><%= link_to game.name, game_path(game) %></td>
+        <td class="text-center"><%= game.email %></td>
+        <td class="text-center"><%= datetime_formatted(game.created_at) %></td>
         <td class="text-center"><%= status_label(game.status) %></td>
       </tr>
     <% end %>
