@@ -39,13 +39,12 @@
         <td><%= link_to game.name, game_path(game) %></td>
         <td><%= game.email %></td>
         <td><%= game.created_at %></td>
-        <td><%= game.status %></td>
+        <td class="text-center"><%= status_label(game.status) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<!-- Pagination -->
 <div class="d-flex justify-content-center mt-4">
   <%= paginate @games %>
 </div>

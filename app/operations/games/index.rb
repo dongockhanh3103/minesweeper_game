@@ -2,7 +2,7 @@ module Games
   class Index < BaseOperation
     DEFAULT_PAGE = 1
     DEFAULT_PER_PAGE = 10
-    def initialize(filter_params:, page:)
+    def initialize(filter_params:, page: DEFAULT_PAGE)
       @scope = Game.all
       @filter_params = filter_params
       @page = page
@@ -12,7 +12,7 @@ module Games
       by_name
       by_status
 
-      @scope = @scope.order(created_at: :desc).page(@page || DEFAULT_PAGE).per(DEFAULT_PER_PAGE)
+      @scope = @scope.order(created_at: :desc).page(@page).per(DEFAULT_PER_PAGE)
       @scope
     end
 

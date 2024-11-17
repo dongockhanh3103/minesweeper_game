@@ -29,6 +29,14 @@
 
 en:
   hello: "Hello world"
+  index:
+    title: 'Minesweeper Games'
+    new_game_btn: 'New Game'
+    games:
+      name: 'Name'
+      status: 'Status'
+      created_at: 'Created At'
+      email: 'Email'
   games:
     statuses:
       initial: initial

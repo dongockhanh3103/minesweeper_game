@@ -1,15 +1,8 @@
-<% status_class = case @game.status  %>
-<% when Game.statuses[:playing] %>
-<% 'bg-warning' %>
-<% when Game.statuses[:lost] %>
-<% 'bg-danger' %>
-<% when Game.statuses[:won] %>
-<% 'bg-success' %>
-<% end %>
+
 
 <div class="container-fluid p-1 d-flex align-items-center justify-content-center">
-  <h1><%= @game.name %></h1>
-  <span class="badge ms-3 <%= status_class %>"><%= I18n.t("games.statuses.#{@game.status}") %></span>
+  <h1 class="pr-2"><%= @game.name %></h1>
+  <%= status_label(@game.status)  %>
 </div>
 
 <% @board.each_with_index do |row, row_idx| %>

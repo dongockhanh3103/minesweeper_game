@@ -5,12 +5,6 @@ class GamesController < ApplicationController
   end
 
   def index
-  # @games = if params[:view_all]
-  #   Game.all.order(created_at: :desc)
-  # else
-  #   Game.order(created_at: :desc)
-  # end
-
     @games = Games::Index.call(
       filter_params: params[:filter] || {},
       page: params[:page]
