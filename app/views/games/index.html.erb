@@ -1,6 +1,6 @@
-<h1 class="text-center">Minesweeper Games</h1>
+<h1 class="text-center"><%= I18n.t('index.title') %></h1>
 
-<%= link_to 'New Game', new_game_path, class: 'btn btn-primary' %>
+<%= link_to I18n.t('index.new_game_btn'), new_game_path, class: 'btn btn-primary' %>
 <%= form_with(url: games_path, method: :get, class: 'mb-4') do %>
   <div class="row pt-3">
     <!-- Search input -->
@@ -26,10 +26,10 @@
   <thead>
     <tr>
       <th class="text-center">#</th>
-      <th class="text-center">Name</th>
-      <th class="text-center">Email</th>
-      <th class="text-center">Created Date</th>
-      <th class="text-center">Status</th>
+      <th class="text-center"><%= I18n.t('index.games.name') %></th>
+      <th class="text-center"><%= I18n.t('index.games.email') %></th>
+      <th class="text-center"><%= I18n.t('index.games.created_at') %></th>
+      <th class="text-center"><%= I18n.t('index.games.status') %></th>
     </tr>
   </thead>
   <tbody>

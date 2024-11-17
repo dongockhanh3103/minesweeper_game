@@ -6,7 +6,7 @@ module Games
 
     def call
       game.board = generate_board
-      game.status = 'initial'
+      game.status = Game.statuses[:initial]
       game.revealed = Array.new(game.width) { Array.new(game.height, false) }.to_json
 
       game.save

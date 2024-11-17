@@ -1,4 +1,4 @@
-<h1 class="text-center">New Board</h1>
+<h1 class="text-center"><%= I18n.t('show.title') %></h1>
 
 <%= bootstrap_form_for(@game, data: { turbo: false }) do |f| %>
   <!-- Display error messages globally (for any errors on the post) -->
@@ -15,5 +15,5 @@
   <%= f.number_field :width, min: 1, placeholder: 'Enter Width' %>
   <%= f.number_field :height, min: 1, placeholder: 'Enter Height' %>
   <%= f.number_field :number_of_mines, min: 1, placeholder: 'Enter Number of Mines' %><br/>
-  <%= f.submit 'Generate Board', class: 'btn btn-primary' %>
+  <%= f.submit I18n.t('show.submit_btn'), class: 'btn btn-primary' %>
 <% end %>
