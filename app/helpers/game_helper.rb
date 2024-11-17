@@ -7,6 +7,8 @@ module GameHelper
       content_tag(:span, I18n.t("games.statuses.lost"), class: 'badge bg-danger')
     when Game.statuses[:won]
       content_tag(:span, I18n.t("games.statuses.won"), class: 'badge bg-success')
+    when Game.statuses[:initial]
+      content_tag(:span, I18n.t("games.statuses.won"), class: 'badge bg-secondary')
     end
   end
 

@@ -39,7 +39,7 @@ en:
       email: 'Email'
   games:
     statuses:
-      initial: initial
+      initial: Initial
       won: Won
       lost: Lost
       playing: Playing
