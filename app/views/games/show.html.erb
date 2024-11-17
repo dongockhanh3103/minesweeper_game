@@ -2,7 +2,9 @@
   <h1 class="pr-2"><%= @game.name %></h1>
   <%= status_label(@game.status)  %>
 </div>
-
+<div class="container-fluid p-1 d-flex align-items-center justify-content-center">
+  <p>Created by: <%= @game.email %> </p>
+</div>
 <% @board.each_with_index do |row, row_idx| %>
   <div class="col-12">
     <div class="row w-25">
