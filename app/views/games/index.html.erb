@@ -1,6 +1,26 @@
-<h1>Games List</h1>
+<h1 class="text-center">Minesweeper Games</h1>
 
 <%= link_to 'New Game', new_game_path, class: 'btn btn-primary' %>
+<%= form_with(url: games_path, method: :get, class: 'mb-4') do %>
+  <div class="row pt-3">
+    <!-- Search input -->
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" name="filter[name]" class="form-control" value="<%= params.dig(:filter, :name) %>" placeholder="Search by name">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <%= select_tag :status, options_for_select(Game.statuses.values, params.dig(:filter, :status)), name: 'filter[status]', class: "form-control", include_blank: "All Statuses" %>
+    </div>
+
+    <!-- Reset Filters Button -->
+    <div class="col-md-3">
+      <%= link_to 'Reset Filters', games_path, class: 'btn btn-secondary w-100' %>
+    </div>
+  </div>
+<% end %>
 
 <table class="table table-bordered mt-3">
   <thead>
@@ -24,3 +44,8 @@
     <% end %>
   </tbody>
 </table>
+
+<!-- Pagination -->
+<div class="d-flex justify-content-center mt-4">
+  <%= paginate @games %>
+</div>

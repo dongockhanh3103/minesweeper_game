@@ -42,13 +42,14 @@ gem 'tzinfo-data', platforms: %i[ windows jruby ]
 gem 'bootsnap', require: false
 gem 'bootstrap_form', '~> 5.4'
 gem 'diplomat', '~> 2.0', '>= 2.0.2'
-# gem 'bootstrap', '~> 5.0'
-# gem 'dartsass-sprockets'
+gem 'psych', '< 4'
 gem 'jquery-rails'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[ mri windows ]
+  gem 'figaro', '~> 1.2'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
 end

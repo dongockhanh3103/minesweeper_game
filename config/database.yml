@@ -1,20 +1,17 @@
 default: &default
   adapter:  postgresql
   encoding: unicode
-  host:     localhost
-  username: postgres
-  password: root
+  host:     <%= ENV['DATABASE_HOST'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_NAME'] %>
 
 development:
   <<: *default
-  darabase: minesweeper_game_development
-
 
 test:
   <<: *default
-  darabase: minesweeper_game_test
 
 production:
   <<: *default
   database: <%= ENV['DATABASE_URL'] %>
-

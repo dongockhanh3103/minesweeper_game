@@ -1,16 +1,20 @@
 class GamesController < ApplicationController
-  include Pagination
   before_action :set_game, only: %i[show update]
   def new
     @game = Game.new
   end
 
   def index
-    @games = if params[:view_all]
-      Game.all.order(created_at: :desc)
-    else
-      Game.order(created_at: :desc).first(10)
-    end
+  # @games = if params[:view_all]
+  #   Game.all.order(created_at: :desc)
+  # else
+  #   Game.order(created_at: :desc)
+  # end
+
+    @games = Games::Index.call(
+      filter_params: params[:filter] || {},
+      page: params[:page]
+    )
   end
 
   def show
